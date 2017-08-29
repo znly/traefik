@@ -1,0 +1,1375 @@
+
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      <meta http-equiv="x-ua-compatible" content="ie=edge">
+      
+        <meta name="description" content="Træfik Documentation">
+      
+      
+        <link rel="canonical" href="https://docs.traefik.io/configuration/commons/">
+      
+      
+        <meta name="author" content="containo.us">
+      
+      
+        <link rel="shortcut icon" href="../../img/traefik.icon.png">
+      
+      <meta name="generator" content="mkdocs-0.16.3, mkdocs-material-1.8.1">
+    
+    
+      
+        <title>Commons - Træfik</title>
+      
+    
+    
+      <script src="../../assets/javascripts/modernizr-1df76c4e58.js"></script>
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/application-bfecc7305d.css">
+      
+        <link rel="stylesheet" href="../../assets/stylesheets/application-02c2a4388f.palette.css">
+      
+    
+    
+      
+        
+        
+        
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700|Roboto+Mono">
+        <style>body,input{font-family:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}</style>
+      
+      <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    
+    
+      <link rel="stylesheet" href="../../styles/extra.css">
+    
+      <link rel="stylesheet" href="../../styles/atom-one-light.css">
+    
+    
+  </head>
+  
+  
+  
+  
+    <body data-md-color-primary="cyan" data-md-color-accent="cyan">
+  
+    <svg class="md-svg">
+      <defs>
+        
+        
+          <svg xmlns="http://www.w3.org/2000/svg" width="416" height="448" viewBox="0 0 416 448" id="github"><path fill="currentColor" d="M160 304q0 10-3.125 20.5t-10.75 19T128 352t-18.125-8.5-10.75-19T96 304t3.125-20.5 10.75-19T128 256t18.125 8.5 10.75 19T160 304zm160 0q0 10-3.125 20.5t-10.75 19T288 352t-18.125-8.5-10.75-19T256 304t3.125-20.5 10.75-19T288 256t18.125 8.5 10.75 19T320 304zm40 0q0-30-17.25-51T296 232q-10.25 0-48.75 5.25Q229.5 240 208 240t-39.25-2.75Q130.75 232 120 232q-29.5 0-46.75 21T56 304q0 22 8 38.375t20.25 25.75 30.5 15 35 7.375 37.25 1.75h42q20.5 0 37.25-1.75t35-7.375 30.5-15 20.25-25.75T360 304zm56-44q0 51.75-15.25 82.75-9.5 19.25-26.375 33.25t-35.25 21.5-42.5 11.875-42.875 5.5T212 416q-19.5 0-35.5-.75t-36.875-3.125-38.125-7.5-34.25-12.875T37 371.5t-21.5-28.75Q0 312 0 260q0-59.25 34-99-6.75-20.5-6.75-42.5 0-29 12.75-54.5 27 0 47.5 9.875t47.25 30.875Q171.5 96 212 96q37 0 70 8 26.25-20.5 46.75-30.25T376 64q12.75 25.5 12.75 54.5 0 21.75-6.75 42 34 40 34 99.5z"/></svg>
+        
+      </defs>
+    </svg>
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="drawer">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="search">
+    <label class="md-overlay" data-md-component="overlay" for="drawer"></label>
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid">
+    <div class="md-flex">
+      <div class="md-flex__cell md-flex__cell--shrink">
+        
+          <a href="https://docs.traefik.io" title="Træfik" class="md-logo md-header-nav__button">
+            <img src="../../img/traefik.logo.png" width="24" height="24">
+          </a>
+        
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--menu md-header-nav__button" for="drawer"></label>
+      </div>
+      <div class="md-flex__cell md-flex__cell--stretch">
+        <span class="md-flex__ellipsis md-header-nav__title">
+          
+            
+              
+                <span class="md-header-nav__parent">
+                  Configuration
+                </span>
+              
+            
+            Commons
+          
+        </span>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        
+          <label class="md-icon md-icon--search md-header-nav__button" for="search"></label>
+          
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="search"></label>
+  <div class="md-search__inner">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" required placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query">
+      <label class="md-icon md-search__icon" for="search"></label>
+      <button type="reset" class="md-icon md-search__icon" data-md-component="reset">close</button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="result" data-md-lang-search="" data-md-lang-tokenizer="[\s\-]+">
+          <div class="md-search-result__meta" data-md-lang-result-none="No matching documents" data-md-lang-result-one="1 matching document" data-md-lang-result-other="# matching documents">
+            Type to start searching
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+        
+      </div>
+      
+        <div class="md-flex__cell md-flex__cell--shrink">
+          <div class="md-header-nav__source">
+            
+
+
+  
+
+
+  <a href="https://github.com/containous/traefik" title="Go to repository" class="md-source" data-md-source="github">
+    
+      <div class="md-source__icon">
+        <svg viewBox="0 0 24 24" width="24" height="24">
+          <use xlink:href="#github" width="24" height="24"></use>
+        </svg>
+      </div>
+    
+    <div class="md-source__repository">
+      GitHub
+    </div>
+  </a>
+
+          </div>
+        </div>
+      
+    </div>
+  </nav>
+</header>
+    
+    <div class="md-container">
+      
+      
+      <main class="md-main">
+        <div class="md-main__inner md-grid" data-md-component="container">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" data-md-level="0">
+  <label class="md-nav__title md-nav__title--site" for="drawer">
+    
+      <i class="md-logo md-nav__button">
+        <img src="../../img/traefik.logo.png">
+      </i>
+    
+    Træfik
+  </label>
+  
+    <div class="md-nav__source">
+      
+
+
+  
+
+
+  <a href="https://github.com/containous/traefik" title="Go to repository" class="md-source" data-md-source="github">
+    
+      <div class="md-source__icon">
+        <svg viewBox="0 0 24 24" width="24" height="24">
+          <use xlink:href="#github" width="24" height="24"></use>
+        </svg>
+      </div>
+    
+    <div class="md-source__repository">
+      GitHub
+    </div>
+  </a>
+
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../.." title="Getting Started" class="md-nav__link">
+      Getting Started
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../basics/" title="Basics" class="md-nav__link">
+      Basics
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3" checked>
+    
+    <label class="md-nav__link" for="nav-3">
+      Configuration
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-3">
+        Configuration
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="toc">
+    
+      
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="toc">
+        Commons
+      </label>
+    
+    <a href="./" title="Commons" class="md-nav__link md-nav__link--active">
+      Commons
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#main-section" title="Main Section" class="md-nav__link">
+    Main Section
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#constraints" title="Constraints" class="md-nav__link">
+    Constraints
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#access-log-definition" title="Access Log Definition" class="md-nav__link">
+    Access Log Definition
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#entry-points-definition" title="Entry Points Definition" class="md-nav__link">
+    Entry Points Definition
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#redirect-http-to-https" title="Redirect HTTP to HTTPS" class="md-nav__link">
+    Redirect HTTP to HTTPS
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rewriting-url" title="Rewriting URL" class="md-nav__link">
+    Rewriting URL
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tls-mutual-authentication" title="TLS Mutual Authentication" class="md-nav__link">
+    TLS Mutual Authentication
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#basic-digest-authentication" title="Basic &amp; Digest Authentication" class="md-nav__link">
+    Basic &amp; Digest Authentication
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#specify-minimum-tls-version" title="Specify Minimum TLS Version" class="md-nav__link">
+    Specify Minimum TLS Version
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#compression" title="Compression" class="md-nav__link">
+    Compression
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#whitelisting" title="Whitelisting" class="md-nav__link">
+    Whitelisting
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#proxyprotocol-support" title="ProxyProtocol Support" class="md-nav__link">
+    ProxyProtocol Support
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#retry-configuration" title="Retry Configuration" class="md-nav__link">
+    Retry Configuration
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#health-check-configuration" title="Health Check Configuration" class="md-nav__link">
+    Health Check Configuration
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#responding-timeouts" title="Responding Timeouts" class="md-nav__link">
+    Responding Timeouts
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#forwarding-timeouts" title="Forwarding Timeouts" class="md-nav__link">
+    Forwarding Timeouts
+  </a>
+  
+</li>
+      
+      
+      
+    </ul>
+  
+</nav>
+    
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../acme/" title="Let's Encrypt" class="md-nav__link">
+      Let's Encrypt
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../backends/web/" title="Web Backend" class="md-nav__link">
+      Web Backend
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../backends/boltdb/" title="BoltDB Backend" class="md-nav__link">
+      BoltDB Backend
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../backends/consul/" title="Consul Backend" class="md-nav__link">
+      Consul Backend
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../backends/docker/" title="Docker Backend" class="md-nav__link">
+      Docker Backend
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../backends/dynamodb/" title="DynamoDB Backend" class="md-nav__link">
+      DynamoDB Backend
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../backends/ecs/" title="ECS Backend" class="md-nav__link">
+      ECS Backend
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../backends/etcd/" title="Etcd Backend" class="md-nav__link">
+      Etcd Backend
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../backends/eureka/" title="Eureka Backend" class="md-nav__link">
+      Eureka Backend
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../backends/file/" title="File Backend" class="md-nav__link">
+      File Backend
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../backends/kubernetes/" title="Kubernetes Ingress Backend" class="md-nav__link">
+      Kubernetes Ingress Backend
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../backends/marathon/" title="Marathon Backend" class="md-nav__link">
+      Marathon Backend
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../backends/rancher/" title="Rancher Backend" class="md-nav__link">
+      Rancher Backend
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../backends/zookeeper/" title="Zookeeper Backend" class="md-nav__link">
+      Zookeeper Backend
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4">
+    
+    <label class="md-nav__link" for="nav-4">
+      User Guide
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-4">
+        User Guide
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../user-guide/examples/" title="Configuration Examples" class="md-nav__link">
+      Configuration Examples
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../user-guide/swarm/" title="Swarm Cluster" class="md-nav__link">
+      Swarm Cluster
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../user-guide/swarm-mode/" title="Swarm Mode Cluster" class="md-nav__link">
+      Swarm Mode Cluster
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../user-guide/kubernetes/" title="Kubernetes" class="md-nav__link">
+      Kubernetes
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../user-guide/marathon/" title="Marathon" class="md-nav__link">
+      Marathon
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../user-guide/kv-config/" title="Key-value Store Configuration" class="md-nav__link">
+      Key-value Store Configuration
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../user-guide/cluster/" title="Clustering/HA" class="md-nav__link">
+      Clustering/HA
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../user-guide/getting-started-with-docker-and-lets-encrypt/" title="Getting Started with Docker & Lets Encrypt" class="md-nav__link">
+      Getting Started with Docker & Lets Encrypt
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../benchmarks/" title="Benchmarks" class="md-nav__link">
+      Benchmarks
+    </a>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#main-section" title="Main Section" class="md-nav__link">
+    Main Section
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#constraints" title="Constraints" class="md-nav__link">
+    Constraints
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#access-log-definition" title="Access Log Definition" class="md-nav__link">
+    Access Log Definition
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#entry-points-definition" title="Entry Points Definition" class="md-nav__link">
+    Entry Points Definition
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#redirect-http-to-https" title="Redirect HTTP to HTTPS" class="md-nav__link">
+    Redirect HTTP to HTTPS
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rewriting-url" title="Rewriting URL" class="md-nav__link">
+    Rewriting URL
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tls-mutual-authentication" title="TLS Mutual Authentication" class="md-nav__link">
+    TLS Mutual Authentication
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#basic-digest-authentication" title="Basic &amp; Digest Authentication" class="md-nav__link">
+    Basic &amp; Digest Authentication
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#specify-minimum-tls-version" title="Specify Minimum TLS Version" class="md-nav__link">
+    Specify Minimum TLS Version
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#compression" title="Compression" class="md-nav__link">
+    Compression
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#whitelisting" title="Whitelisting" class="md-nav__link">
+    Whitelisting
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#proxyprotocol-support" title="ProxyProtocol Support" class="md-nav__link">
+    ProxyProtocol Support
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#retry-configuration" title="Retry Configuration" class="md-nav__link">
+    Retry Configuration
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#health-check-configuration" title="Health Check Configuration" class="md-nav__link">
+    Health Check Configuration
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#responding-timeouts" title="Responding Timeouts" class="md-nav__link">
+    Responding Timeouts
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#forwarding-timeouts" title="Forwarding Timeouts" class="md-nav__link">
+    Forwarding Timeouts
+  </a>
+  
+</li>
+      
+      
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                  <a href="https://github.com/containous/traefik/edit/master/docs/configuration/commons.md" title="Edit this page" class="md-icon md-content__icon">edit</a>
+                
+                
+                <h1 id="global-configuration">Global Configuration<a class="headerlink" href="#global-configuration" title="Permanent link">&para;</a></h1>
+<h2 id="main-section">Main Section<a class="headerlink" href="#main-section" title="Permanent link">&para;</a></h2>
+<pre><code class="toml">################################################################
+# Global configuration
+################################################################
+
+# Duration to give active requests a chance to finish before Traefik stops.
+# Can be provided in a format supported by [time.ParseDuration](https://golang.org/pkg/time/#ParseDuration) or as raw values (digits).
+# If no units are provided, the value is parsed assuming seconds.
+# Note: in this time frame no new requests are accepted.
+#
+# Optional
+# Default: &quot;10s&quot;
+#
+# graceTimeOut = &quot;10s&quot;
+
+# Enable debug mode
+#
+# Optional
+# Default: false
+#
+# debug = true
+
+# Periodically check if a new version has been released
+#
+# Optional
+# Default: true
+#
+# checkNewVersion = false
+
+# Traefik logs file
+# If not defined, logs to stdout
+#
+# Optional
+#
+# traefikLogsFile = &quot;log/traefik.log&quot;
+
+# Access logs file
+#
+# DEPRECATED - see [accessLog] lower down
+# Optional
+#
+# accessLogsFile = &quot;log/access.log&quot;
+
+# Log level
+#
+# Optional
+# Default: &quot;ERROR&quot;
+# Accepted values, in order of severity: &quot;DEBUG&quot;, &quot;INFO&quot;, &quot;WARN&quot;, &quot;ERROR&quot;, &quot;FATAL&quot;, &quot;PANIC&quot;
+# Messages at and above the selected level will be logged.
+#
+# logLevel = &quot;ERROR&quot;
+
+# Backends throttle duration: minimum duration in seconds between 2 events from providers
+# before applying a new configuration. It avoids unnecessary reloads if multiples events
+# are sent in a short amount of time.
+# Can be provided in a format supported by [time.ParseDuration](https://golang.org/pkg/time/#ParseDuration) or as raw
+# values (digits). If no units are provided, the value is parsed assuming
+# seconds.
+#
+# Optional
+# Default: &quot;2s&quot;
+#
+# ProvidersThrottleDuration = &quot;2s&quot;
+
+# IdleTimeout
+# 
+# DEPRECATED - see [respondingTimeouts] section. In the case both settings are configured, the deprecated option will
+# be overwritten.
+#
+# IdleTimeout is the maximum amount of time an idle (keep-alive) connection will remain idle before closing itself.
+# This is set to enforce closing of stale client connections.
+# Can be provided in a format supported by [time.ParseDuration](https://golang.org/pkg/time/#ParseDuration) or as raw
+# values (digits). If no units are provided, the value is parsed assuming seconds.
+#
+# Optional
+# Default: &quot;180s&quot;
+#
+# IdleTimeout = &quot;360s&quot;
+
+# Controls the maximum idle (keep-alive) connections to keep per-host. If zero, DefaultMaxIdleConnsPerHost
+# from the Go standard library net/http module is used.
+# If you encounter 'too many open files' errors, you can either increase this
+# value or change the `ulimit`.
+#
+# Optional
+# Default: 200
+#
+# MaxIdleConnsPerHost = 200
+
+# If set to true invalid SSL certificates are accepted for backends.
+# Note: This disables detection of man-in-the-middle attacks so should only be used on secure backend networks.
+# Optional
+# Default: false
+#
+# InsecureSkipVerify = true
+
+# Register Certificates in the RootCA. This certificates will be use for backends calls.
+# Note: You can use file path or cert content directly
+# Optional
+# Default: []
+#
+# RootCAs = [ &quot;/mycert.cert&quot; ]
+
+# Entrypoints to be used by frontends that do not specify any entrypoint.
+# Each frontend can specify its own entrypoints.
+#
+# Optional
+# Default: [&quot;http&quot;]
+#
+# defaultEntryPoints = [&quot;http&quot;, &quot;https&quot;]
+</code></pre>
+
+<h3 id="constraints">Constraints<a class="headerlink" href="#constraints" title="Permanent link">&para;</a></h3>
+<p>In a micro-service architecture, with a central service discovery, setting constraints limits Træfik scope to a smaller number of routes.</p>
+<p>Træfik filters services according to service attributes/tags set in your configuration backends.</p>
+<p>Supported backends:</p>
+<ul>
+<li>Docker</li>
+<li>Consul K/V</li>
+<li>BoltDB</li>
+<li>Zookeeper</li>
+<li>Etcd</li>
+<li>Consul Catalog</li>
+<li>Rancher</li>
+<li>Marathon</li>
+<li>Kubernetes (using a provider-specific mechanism based on label selectors)</li>
+</ul>
+<p>Supported filters:</p>
+<ul>
+<li><code>tag</code></li>
+</ul>
+<pre><code class="toml"># Constraints definition
+#
+# Optional
+#
+# Simple matching constraint
+# constraints = [&quot;tag==api&quot;]
+
+# Simple mismatching constraint
+# constraints = [&quot;tag!=api&quot;]
+
+# Globbing
+# constraints = [&quot;tag==us-*&quot;]
+
+# Multiple constraints
+#   - &quot;tag==&quot; must match with at least one tag
+#   - &quot;tag!=&quot; must match with none of tags
+# constraints = [&quot;tag!=us-*&quot;, &quot;tag!=asia-*&quot;]
+
+# Backend-specific constraint
+# [consulCatalog]
+#   endpoint = 127.0.0.1:8500
+#   constraints = [&quot;tag==api&quot;]
+
+# [consulCatalog]
+#   endpoint = 127.0.0.1:8500
+#   constraints = [&quot;tag==api&quot;, &quot;tag!=v*-beta&quot;]
+</code></pre>
+
+<h2 id="access-log-definition">Access Log Definition<a class="headerlink" href="#access-log-definition" title="Permanent link">&para;</a></h2>
+<p>Access logs are written when <code>[accessLog]</code> is defined. 
+By default it will write to stdout and produce logs in the textual Common Log Format (CLF), extended with additional fields.</p>
+<p>To enable access logs using the default settings just add the <code>[accessLog]</code> entry.</p>
+<pre><code class="toml">[accessLog]
+</code></pre>
+
+<p>To write the logs into a logfile specify the <code>filePath</code>.</p>
+<pre><code class="toml">[accessLog]
+  filePath = &quot;/path/to/access.log&quot;
+</code></pre>
+
+<p>To write JSON format logs, specify <code>json</code> as the format:</p>
+<pre><code class="toml">[accessLog]
+  filePath   = &quot;/path/to/access.log&quot;
+  format     = &quot;json&quot;
+</code></pre>
+
+<h2 id="entry-points-definition">Entry Points Definition<a class="headerlink" href="#entry-points-definition" title="Permanent link">&para;</a></h2>
+<pre><code class="toml"># Entrypoints definition
+#
+# Default:
+# [entryPoints]
+#   [entryPoints.http]
+#   address = &quot;:80&quot;
+#
+[entryPoints]
+  [entryPoints.http]
+  address = &quot;:80&quot;
+</code></pre>
+
+<h3 id="redirect-http-to-https">Redirect HTTP to HTTPS<a class="headerlink" href="#redirect-http-to-https" title="Permanent link">&para;</a></h3>
+<pre><code class="toml"># To redirect an http entrypoint to an https entrypoint (with SNI support):
+#
+[entryPoints]
+  [entryPoints.http]
+  address = &quot;:80&quot;
+    [entryPoints.http.redirect]
+      entryPoint = &quot;https&quot;
+  [entryPoints.https]
+  address = &quot;:443&quot;
+    [entryPoints.https.tls]
+      [[entryPoints.https.tls.certificates]]
+      CertFile = &quot;integration/fixtures/https/snitest.com.cert&quot;
+      KeyFile = &quot;integration/fixtures/https/snitest.com.key&quot;
+      [[entryPoints.https.tls.certificates]]
+      CertFile = &quot;integration/fixtures/https/snitest.org.cert&quot;
+      KeyFile = &quot;integration/fixtures/https/snitest.org.key&quot;
+</code></pre>
+
+<h3 id="rewriting-url">Rewriting URL<a class="headerlink" href="#rewriting-url" title="Permanent link">&para;</a></h3>
+<pre><code class="toml"># To redirect an entrypoint rewriting the URL:
+[entryPoints]
+  [entryPoints.http]
+  address = &quot;:80&quot;
+    [entryPoints.http.redirect]
+      regex = &quot;^http://localhost/(.*)&quot;
+      replacement = &quot;http://mydomain/$1&quot;
+</code></pre>
+
+<h3 id="tls-mutual-authentication">TLS Mutual Authentication<a class="headerlink" href="#tls-mutual-authentication" title="Permanent link">&para;</a></h3>
+<pre><code class="toml"># Only accept clients that present a certificate signed by a specified
+# Certificate Authority (CA)
+# ClientCAFiles can be configured with multiple CA:s in the same file or
+# use multiple files containing one or several CA:s. The CA:s has to be in PEM format.
+# All clients will be required to present a valid cert.
+# The requirement will apply to all server certs in the entrypoint
+# In the example below both snitest.com and snitest.org will require client certs
+#
+[entryPoints]
+  [entryPoints.https]
+  address = &quot;:443&quot;
+  [entryPoints.https.tls]
+  ClientCAFiles = [&quot;tests/clientca1.crt&quot;, &quot;tests/clientca2.crt&quot;]
+    [[entryPoints.https.tls.certificates]]
+    CertFile = &quot;integration/fixtures/https/snitest.com.cert&quot;
+    KeyFile = &quot;integration/fixtures/https/snitest.com.key&quot;
+    [[entryPoints.https.tls.certificates]]
+    CertFile = &quot;integration/fixtures/https/snitest.org.cert&quot;
+    KeyFile = &quot;integration/fixtures/https/snitest.org.key&quot;
+</code></pre>
+
+<h3 id="basic-digest-authentication">Basic &amp; Digest Authentication<a class="headerlink" href="#basic-digest-authentication" title="Permanent link">&para;</a></h3>
+<pre><code class="toml"># To enable basic auth on an entrypoint
+#
+# with 2 user/pass: test:test and test2:test2
+# Passwords can be encoded in MD5, SHA1 and BCrypt: you can use htpasswd to generate those ones.
+# Users can be specified directly in the toml file, or indirectly by referencing an external file;
+# if both are provided, the two are merged, with external file contents having precedence.
+[entryPoints]
+  [entryPoints.http]
+  address = &quot;:80&quot;
+  [entryPoints.http.auth.basic]
+  users = [&quot;test:$apr1$H6uskkkW$IgXLP6ewTrSuBkTrqE8wj/&quot;, &quot;test2:$apr1$d9hr9HBB$4HxwgUir3HP4EsggP/QNo0&quot;]
+  usersFile = &quot;/path/to/.htpasswd&quot;
+</code></pre>
+
+<pre><code class="toml"># To enable digest auth on an entrypoint
+#
+# with 2 user/realm/pass: test:traefik:test and test2:traefik:test2
+# You can use htdigest to generate those ones
+# Users can be specified directly in the toml file, or indirectly by referencing an external file;
+# if both are provided, the two are merged, with external file contents having precedence
+[entryPoints]
+  [entryPoints.http]
+  address = &quot;:80&quot;
+  [entryPoints.http.auth.basic]
+  users = [&quot;test:traefik:a2688e031edb4be6a3797f3882655c05 &quot;, &quot;test2:traefik:518845800f9e2bfb1f1f740ec24f074e&quot;]
+  usersFile = &quot;/path/to/.htdigest&quot;
+</code></pre>
+
+<h3 id="specify-minimum-tls-version">Specify Minimum TLS Version<a class="headerlink" href="#specify-minimum-tls-version" title="Permanent link">&para;</a></h3>
+<pre><code class="toml"># To specify an https entrypoint with a minimum TLS version, 
+# and specifying an array of cipher suites (from crypto/tls):
+[entryPoints]
+  [entryPoints.https]
+  address = &quot;:443&quot;
+    [entryPoints.https.tls]
+    MinVersion = &quot;VersionTLS12&quot;
+    CipherSuites = [&quot;TLS_RSA_WITH_AES_256_GCM_SHA384&quot;]
+      [[entryPoints.https.tls.certificates]]
+      CertFile = &quot;integration/fixtures/https/snitest.com.cert&quot;
+      KeyFile = &quot;integration/fixtures/https/snitest.com.key&quot;
+      [[entryPoints.https.tls.certificates]]
+      CertFile = &quot;integration/fixtures/https/snitest.org.cert&quot;
+      KeyFile = &quot;integration/fixtures/https/snitest.org.key&quot;
+</code></pre>
+
+<h3 id="compression">Compression<a class="headerlink" href="#compression" title="Permanent link">&para;</a></h3>
+<pre><code class="toml"># To enable compression support using gzip format:
+[entryPoints]
+  [entryPoints.http]
+  address = &quot;:80&quot;
+  compress = true
+</code></pre>
+
+<h3 id="whitelisting">Whitelisting<a class="headerlink" href="#whitelisting" title="Permanent link">&para;</a></h3>
+<pre><code class="toml"># To enable IP whitelisting at the entrypoint level:
+[entryPoints]
+  [entryPoints.http]
+  address = &quot;:80&quot;
+  whiteListSourceRange = [&quot;127.0.0.1/32&quot;]
+</code></pre>
+
+<h3 id="proxyprotocol-support">ProxyProtocol Support<a class="headerlink" href="#proxyprotocol-support" title="Permanent link">&para;</a></h3>
+<pre><code class="toml"># To enable ProxyProtocol support (https://www.haproxy.org/download/1.8/doc/proxy-protocol.txt):
+[entryPoints]
+  [entryPoints.http]
+  address = &quot;:80&quot;
+  proxyprotocol = true
+</code></pre>
+
+<h2 id="retry-configuration">Retry Configuration<a class="headerlink" href="#retry-configuration" title="Permanent link">&para;</a></h2>
+<pre><code class="toml"># Enable retry sending request if network error
+#
+# Optional
+#
+[retry]
+
+# Number of attempts
+#
+# Optional
+# Default: (number servers in backend) -1
+#
+# attempts = 3
+</code></pre>
+
+<h2 id="health-check-configuration">Health Check Configuration<a class="headerlink" href="#health-check-configuration" title="Permanent link">&para;</a></h2>
+<pre><code class="toml"># Enable custom health check options.
+#
+# Optional
+#
+[healthcheck]
+
+# Set the default health check interval. Will only be effective if health check
+# paths are defined. Given provider-specific support, the value may be
+# overridden on a per-backend basis.
+# Can be provided in a format supported by [time.ParseDuration](https://golang.org/pkg/time/#ParseDuration) or as raw
+# values (digits). If no units are provided, the value is parsed assuming
+# seconds.
+#
+# Optional
+# Default: &quot;30s&quot;
+#
+# interval = &quot;30s&quot;
+</code></pre>
+
+<h2 id="responding-timeouts">Responding Timeouts<a class="headerlink" href="#responding-timeouts" title="Permanent link">&para;</a></h2>
+<pre><code class="toml"># respondingTimeouts are timeouts for incoming requests to the Traefik instance.
+#
+# Optional
+# 
+[respondingTimeouts]
+
+# readTimeout is the maximum duration for reading the entire request, including the body.
+# If zero, no timeout exists.
+# Can be provided in a format supported by [time.ParseDuration](https://golang.org/pkg/time/#ParseDuration) or as raw
+# values (digits). If no units are provided, the value is parsed assuming seconds.
+# 
+# Optional
+# Default: &quot;0s&quot;
+# 
+# readTimeout = &quot;5s&quot;
+
+# writeTimeout is the maximum duration before timing out writes of the response. It covers the time from the end of 
+# the request header read to the end of the response write.
+# If zero, no timeout exists.
+# Can be provided in a format supported by [time.ParseDuration](https://golang.org/pkg/time/#ParseDuration) or as raw
+# values (digits). If no units are provided, the value is parsed assuming seconds.
+#
+# Optional
+# Default: &quot;0s&quot;
+# 
+# writeTimeout = &quot;5s&quot;
+
+# idleTimeout is the maximum duration an idle (keep-alive) connection will remain idle before closing itself.
+# If zero, no timeout exists.
+# Can be provided in a format supported by [time.ParseDuration](https://golang.org/pkg/time/#ParseDuration) or as raw
+# values (digits). If no units are provided, the value is parsed assuming seconds.
+#
+# Optional
+# Default: &quot;180s&quot;
+#
+# idleTimeout = &quot;360s&quot;
+
+</code></pre>
+
+<h2 id="forwarding-timeouts">Forwarding Timeouts<a class="headerlink" href="#forwarding-timeouts" title="Permanent link">&para;</a></h2>
+<pre><code class="toml"># forwardingTimeouts are timeouts for requests forwarded to the backend servers.
+#
+# Optional
+# 
+[forwardingTimeouts]
+
+# dialTimeout is the amount of time to wait until a connection to a backend server can be established. 
+# If zero, no timeout exists.
+# Can be provided in a format supported by [time.ParseDuration](https://golang.org/pkg/time/#ParseDuration) or as raw
+# values (digits). If no units are provided, the value is parsed assuming seconds.
+# 
+# Optional
+# Default: &quot;30s&quot;
+# 
+# dialTimeout = &quot;30s&quot;
+
+# responseHeaderTimeout is the amount of time to wait for a server's response headers after fully writing the request (including its body, if any). 
+# If zero, no timeout exists.
+# Can be provided in a format supported by [time.ParseDuration](https://golang.org/pkg/time/#ParseDuration) or as raw
+# values (digits). If no units are provided, the value is parsed assuming seconds.
+#
+# Optional
+# Default: &quot;0s&quot;
+# 
+# responseHeaderTimeout = &quot;0s&quot;
+</code></pre>
+                
+                  
+                
+              
+              
+                
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid">
+        
+          <a href="../../basics/" title="Basics" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
+            </div>
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Previous
+                </span>
+                Basics
+              </span>
+            </div>
+          </a>
+        
+        
+          <a href="../acme/" title="Let's Encrypt" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Next
+                </span>
+                Let's Encrypt
+              </span>
+            </div>
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
+            </div>
+          </a>
+        
+      </nav>
+    </div>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+          <div class="md-footer-copyright__highlight">
+            Copyright &copy; 2016-2017 Containous SAS
+          </div>
+        
+        powered by
+        <a href="http://www.mkdocs.org" title="MkDocs">MkDocs</a>
+        and
+        <a href="http://squidfunk.github.io/mkdocs-material/" title="Material for MkDocs">
+          Material for MkDocs</a>
+      </div>
+      
+        
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../../assets/javascripts/application-6940329b9f.js"></script>
+      
+      
+      <script>app.initialize({url:{base:"../.."}})</script>
+      
+        <script src="../../js/hljs/highlight.pack.js"></script>
+      
+        <script src="../../js/extra.js"></script>
+      
+    
+    
+      
+    
+  </body>
+</html>

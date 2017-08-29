@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
+    
+    <url>
+     <loc>https://docs.traefik.io/</loc>
+     <lastmod>2017-08-29</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    
+
+    
+    <url>
+     <loc>https://docs.traefik.io/basics/</loc>
+     <lastmod>2017-08-29</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    
+
+    
+        
+    <url>
+     <loc>https://docs.traefik.io/configuration/commons/</loc>
+     <lastmod>2017-08-29</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>https://docs.traefik.io/configuration/acme/</loc>
+     <lastmod>2017-08-29</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>https://docs.traefik.io/configuration/backends/web/</loc>
+     <lastmod>2017-08-29</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>https://docs.traefik.io/configuration/backends/boltdb/</loc>
+     <lastmod>2017-08-29</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>https://docs.traefik.io/configuration/backends/consul/</loc>
+     <lastmod>2017-08-29</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>https://docs.traefik.io/configuration/backends/docker/</loc>
+     <lastmod>2017-08-29</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>https://docs.traefik.io/configuration/backends/dynamodb/</loc>
+     <lastmod>2017-08-29</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>https://docs.traefik.io/configuration/backends/ecs/</loc>
+     <lastmod>2017-08-29</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>https://docs.traefik.io/configuration/backends/etcd/</loc>
+     <lastmod>2017-08-29</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>https://docs.traefik.io/configuration/backends/eureka/</loc>
+     <lastmod>2017-08-29</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>https://docs.traefik.io/configuration/backends/file/</loc>
+     <lastmod>2017-08-29</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>https://docs.traefik.io/configuration/backends/kubernetes/</loc>
+     <lastmod>2017-08-29</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>https://docs.traefik.io/configuration/backends/marathon/</loc>
+     <lastmod>2017-08-29</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>https://docs.traefik.io/configuration/backends/rancher/</loc>
+     <lastmod>2017-08-29</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>https://docs.traefik.io/configuration/backends/zookeeper/</loc>
+     <lastmod>2017-08-29</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    
+
+    
+        
+    <url>
+     <loc>https://docs.traefik.io/user-guide/examples/</loc>
+     <lastmod>2017-08-29</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>https://docs.traefik.io/user-guide/swarm/</loc>
+     <lastmod>2017-08-29</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>https://docs.traefik.io/user-guide/swarm-mode/</loc>
+     <lastmod>2017-08-29</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>https://docs.traefik.io/user-guide/kubernetes/</loc>
+     <lastmod>2017-08-29</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>https://docs.traefik.io/user-guide/marathon/</loc>
+     <lastmod>2017-08-29</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>https://docs.traefik.io/user-guide/kv-config/</loc>
+     <lastmod>2017-08-29</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>https://docs.traefik.io/user-guide/cluster/</loc>
+     <lastmod>2017-08-29</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>https://docs.traefik.io/user-guide/getting-started-with-docker-and-lets-encrypt/</loc>
+     <lastmod>2017-08-29</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    
+
+    
+    <url>
+     <loc>https://docs.traefik.io/benchmarks/</loc>
+     <lastmod>2017-08-29</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    
+
+</urlset>
