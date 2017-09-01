@@ -501,19 +501,16 @@ func (server *Server) startProviders() {
 	}
 }
 
-func createClientTLSConfig(tlsOption *configuration.TLS) (*tls.Config, error) {
+func createClientTLSConfig(tlsOption *types.TLSClient) (*tls.Config, error) {
 	if tlsOption == nil {
 		return nil, errors.New("no TLS provided")
 	}
 
-	config, err := tlsOption.Certificates.CreateTLSConfig()
-	if err != nil {
-		return nil, err
-	}
+	config := &tls.Config{}
 
-	if len(tlsOption.ClientCAFiles) > 0 {
+	if len(tlsOption.RootCAs) > 0 {
 		pool := x509.NewCertPool()
-		for _, caFile := range tlsOption.ClientCAFiles {
+		for _, caFile := range tlsOption.RootCAs {
 			data, err := ioutil.ReadFile(caFile)
 			if err != nil {
 				return nil, err
@@ -524,7 +521,8 @@ func createClientTLSConfig(tlsOption *configuration.TLS) (*tls.Config, error) {
 		}
 		config.RootCAs = pool
 	}
-	config.BuildNameToCertificate()
+
+	config.ServerName = tlsOption.ServerName
 	return config, nil
 }
 
@@ -700,20 +698,17 @@ func (server *Server) buildEntryPoints(globalConfiguration configuration.GlobalC
 
 // getRoundTripper will either use server.defaultForwardingRoundTripper or create a new one
 // given a custom TLS configuration is passed and the passTLSCert option is set to true.
-func (server *Server) getRoundTripper(globalConfiguration configuration.GlobalConfiguration, passTLSCert bool, tls *configuration.TLS) (http.RoundTripper, error) {
-	if passTLSCert {
-		tlsConfig, err := createClientTLSConfig(tls)
-		if err != nil {
-			log.Errorf("Failed to create TLSClientConfig: %s", err)
-			return nil, err
-		}
-
-		transport := createHTTPTransport(globalConfiguration)
-		transport.TLSClientConfig = tlsConfig
-		return transport, nil
+func (server *Server) getRoundTripper(globalConfiguration configuration.GlobalConfiguration, passTLSCert bool, tls *types.TLSClient) (http.RoundTripper, error) {
+	tlsConfig, err := createClientTLSConfig(tls)
+	if err != nil {
+		log.Errorf("Failed to create TLSClientConfig: %s", err)
+		return nil, err
 	}
 
-	return server.defaultForwardingRoundTripper, nil
+	transport := createHTTPTransport(globalConfiguration)
+	transport.TLSClientConfig = tlsConfig
+	http2.ConfigureTransport(transport)
+	return transport, nil
 }
 
 // LoadConfig returns a new gorilla.mux Route from the specified global configuration and the dynamic
@@ -781,7 +776,7 @@ func (server *Server) loadConfig(configurations types.Configurations, globalConf
 				if backends[entryPointName+frontend.Backend] == nil {
 					log.Debugf("Creating backend %s", frontend.Backend)
 
-					roundTripper, err := server.getRoundTripper(globalConfiguration, frontend.PassTLSCert, entryPoint.TLS)
+					roundTripper, err := server.getRoundTripper(globalConfiguration, frontend.PassTLSCert, frontend.TLS)
 					if err != nil {
 						log.Errorf("Failed to create RoundTripper for frontend %s: %v", frontendName, err)
 						log.Errorf("Skipping frontend %s...", frontendName)

@@ -119,6 +119,11 @@ func (h Headers) HasSecureHeadersDefined() bool {
 		h.IsDevelopment
 }
 
+type TLSClient struct {
+	RootCAs    []string `json:"rootCAs,omitempty"`
+	ServerName string   `json:"serverName,omitempty"`
+}
+
 // Frontend holds frontend configuration.
 type Frontend struct {
 	EntryPoints          []string             `json:"entryPoints,omitempty"`
@@ -131,6 +136,7 @@ type Frontend struct {
 	WhitelistSourceRange []string             `json:"whitelistSourceRange,omitempty"`
 	Headers              Headers              `json:"headers,omitempty"`
 	Errors               map[string]ErrorPage `json:"errors,omitempty"`
+	TLS                  *TLSClient           `json:"tls,omitempty"`
 }
 
 // LoadBalancerMethod holds the method of load balancing to use.
